@@ -6,6 +6,7 @@ image: arnobirchler/gitlab-ci:7.2
 stages:
   - build
   - test
+  - deploy
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
@@ -36,3 +37,12 @@ unit-test:
   script: 
     - composer unit-test
   coverage: '/^\s*Lines:\s*\d+.\d+\%/'
+
+deploy_preprod:
+  stage: deploy
+  script:
+  - echo "Deploy to preprod"
+  environment:
+  name: preprod
+  url: http://164.132.58.255
+  when: on_success
