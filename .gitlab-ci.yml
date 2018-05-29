@@ -43,6 +43,6 @@ deploy_preprod:
   script:
   - echo "Deploy to preprod"
   environment:
-  name: preprod
-  url: http://164.132.58.255
+    name: preprod
+    url: http://164.132.58.255
   when: on_success
